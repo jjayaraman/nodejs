@@ -1,0 +1,22 @@
+{
+  "name": "simple-website-2016",
+  "version": "1.0.0",
+  "description": "My first simple NodeJS example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjayaraman/nodejs.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Jay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjayaraman/nodejs/issues"
+  },
+  "homepage": "https://github.com/jjayaraman/nodejs#readme"
+}
