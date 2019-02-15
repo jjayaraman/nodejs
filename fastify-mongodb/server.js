@@ -21,7 +21,7 @@ client.connect(err => {
 
   db = client.db(MONGO_DB_DATABASE);
 
-  client.close();
+  //  client.close();
 });
 
 // Run the server!
@@ -44,11 +44,28 @@ fastify.get("/", async (request, reply) => {
 fastify.get("/country", (request, reply) => {
   const collection = db.collection("country");
   query = {};
-  collection.find(query).toArray((error, docs) => {
+  collection.find(query).
+  toArray((error, docs) => {
     if (error) {
+      console.error("Error : ", error);
       reply.status(400).send({ statusCode: 400, error: "", message: error });
     } else {
       reply.send(docs);
     }
   });
+  console.log("done");
+});
+
+fastify.get("/country_view", (request, reply) => {
+  const collection = db.collection("country_view");
+  query = {};
+  collection.find(query).toArray((error, docs) => {
+    if (error) {
+      console.error("Error : ", error);
+      reply.status(400).send({ statusCode: 400, error: "", message: error });
+    } else {
+      reply.send(docs);
+    }
+  });
+  console.log("done");
 });

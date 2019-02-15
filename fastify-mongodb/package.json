@@ -4,7 +4,8 @@
   "description": "API using fastify mongodb rest-assured",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rest-assured": "rest-assured"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "mongodb": "^3.1.13"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "rest-assured": "^0.1.0"
   }
 }
