@@ -1,7 +1,7 @@
 {
-  "name": "fastify-mongodb",
+  "name": "fastify-mongodb-api",
   "version": "1.0.0",
-  "description": "API using fastify mongodb rest-assured",
+  "description": "API using fastify mongodb",
   "main": "server.js",
   "scripts": {
     "test": "mocha",
@@ -26,6 +26,8 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "fastify": "^1.14.1",
+    "fastify-helmet": "^3.0.0",
+    "fastify-rate-limit": "^1.0.0",
     "mongodb": "^3.1.13"
   },
   "devDependencies": {
