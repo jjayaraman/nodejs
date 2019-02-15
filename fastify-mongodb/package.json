@@ -1,0 +1,33 @@
+{
+  "name": "fastify-mongodb",
+  "version": "1.0.0",
+  "description": "API using fastify mongodb rest-assured",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jjayaraman/nodejs.git"
+  },
+  "keywords": [
+    "fasitfy",
+    "mongodb",
+    "rest-assured",
+    "api"
+  ],
+  "author": "Jayakumar Jayaraman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjayaraman/nodejs/issues"
+  },
+  "homepage": "https://github.com/jjayaraman/nodejs#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "fastify": "^1.14.1",
+    "mongodb": "^3.1.13"
+  },
+  "devDependencies": {
+    "rest-assured": "^0.1.0"
+  }
+}
