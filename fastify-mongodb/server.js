@@ -44,8 +44,7 @@ fastify.get("/", async (request, reply) => {
 fastify.get("/country", (request, reply) => {
   const collection = db.collection("country");
   query = {};
-  collection.find(query).
-  toArray((error, docs) => {
+  collection.find(query).toArray((error, docs) => {
     if (error) {
       console.error("Error : ", error);
       reply.status(400).send({ statusCode: 400, error: "", message: error });
@@ -53,7 +52,6 @@ fastify.get("/country", (request, reply) => {
       reply.send(docs);
     }
   });
-  console.log("done");
 });
 
 fastify.get("/country_view", (request, reply) => {
