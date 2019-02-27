@@ -9,8 +9,8 @@ app.get('/', (req, res) => {
 
 // Socket IO
 io.on('connection', (socket) => {
-    console.log('a user connected...');
-
+    console.log('connection - a user connected...');
+ 
     socket.on('chat event', (msg) => {
         console.log("client rcvd : " + msg);
         io.emit('server message', msg);
