@@ -1,0 +1,25 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <form>
+        <div id="messages"></div>
+        <input id="message" type="text">
+        <input type="button" >
+
+    </form>
+
+    <script src="/socket.io/socket.io.js"> </script>
+    <script>
+        var socket = io();
+
+        socket.on('connect', (data) => {
+            socket.emit('join', 'client joined..');
+        })
+    </script>
+</body>
+
+</html>
