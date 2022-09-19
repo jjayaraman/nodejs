@@ -3,33 +3,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const UserDao_1 = require("./dao/UserDao");
 const express_1 = __importDefault(require("express"));
 const apollo_server_express_1 = require("apollo-server-express");
+const customer_json_1 = __importDefault(require("./fakedata/customer.json"));
 const typeDefs = (0, apollo_server_express_1.gql) `
 
-    type User {
+    type Customer {
         id: String
         first_name: String
+        last_name: String
+        email: String
+        phone: String
+        house_number: Int
+        street: String
+        post_code: String
+        city: String
+        country: String
     }
     
     type Query {
-        users: [User]
-    }
-
-    type Mutation {
-        createUser(firstName:String!): User!
-        updateUser(firstName:String!): User!
-        deleteUser(id:Int!): Boolean
+        customers: [Customer]
     }
 `;
-const userDao = new UserDao_1.UserDao();
 const resolvers = {
     Query: {
-        users: () => userDao.getUsers(),
-    },
-    Mutation: {
-        createUser: (user) => userDao.createUser(user)
+        customers: () => customer_json_1.default
     }
 };
 // Apollo 

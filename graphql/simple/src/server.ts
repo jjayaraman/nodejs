@@ -1,34 +1,32 @@
-import { UserDao } from './dao/UserDao';
 import express from 'express';
 import { ApolloServer, gql } from 'apollo-server-express'
-import { User } from './entities/User';
+import { default as customers } from './fakedata/customer.json'
 
 const typeDefs = gql`
 
-    type User {
+    type Customer {
         id: String
         first_name: String
+        last_name: String
+        email: String
+        phone: String
+        house_number: Int
+        street: String
+        post_code: String
+        city: String
+        country: String
     }
     
     type Query {
-        users: [User]
-    }
-
-    type Mutation {
-        createUser(firstName:String!): User!
-        updateUser(firstName:String!): User!
-        deleteUser(id:Int!): Boolean
+        customers: [Customer]
     }
 `
 
-const userDao = new UserDao()
 const resolvers = {
     Query: {
-        users: () => userDao.getUsers(),
-    },
-    Mutation : {
-        createUser: (user:User) => userDao.createUser(user)
+        customers: () => customers
     }
+
 }
 
 // Apollo 
