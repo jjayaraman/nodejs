@@ -57,12 +57,7 @@ describe('POST /validate', () => {
       .set('Content-Type', 'application/json')
       .send('{"isActive": FALSE}'); // Sending raw string with invalid JSON
     expect(res.statusCode).toEqual(422);
-    // We expect the message to contain "near:" and "Please check for syntax errors"
-    expect(res.body.details[0].message).toContain('near:');
-    expect(res.body.details[0].message).toContain('Please check for syntax errors');
-    // Ensure no ugly escapes
-    expect(res.body.details[0].message).not.toContain('\\"');
-    expect(res.body.details[0].message).not.toContain('\\n');
+    expect(res.body.details[0].message).toEqual('The request body contains invalid JSON.');
   });
 
   it('should reject malformed JSON with multiple fields', async () => {
@@ -71,9 +66,7 @@ describe('POST /validate', () => {
       .set('Content-Type', 'application/json')
       .send('{"name": "Jay", "isActive": FALSE, "role": "admin"}'); 
     expect(res.statusCode).toEqual(422);
-    expect(res.body.error).toEqual('Invalid JSON');
-    expect(res.body.details[0].message).toContain('near:');
-    // The snippet should contain part of the invalid text, cleaned up
-    expect(res.body.details[0].message).toContain('FALSE');
+    expect(res.body.error).toEqual('Invalid JSON in request body');
+    expect(res.body.details[0].message).toEqual('The request body contains invalid JSON.');
   });
 });
