@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
          message = `The request body contains invalid JSON. ${cleanMessage}`;
     }
     
-    return res.status(400).json({
+    return res.status(422).json({
       error: "Invalid JSON",
       details: [{ message: message }]
     });

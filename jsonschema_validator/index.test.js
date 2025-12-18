@@ -56,7 +56,7 @@ describe('POST /validate', () => {
       .post('/validate')
       .set('Content-Type', 'application/json')
       .send('{"isActive": FALSE}'); // Sending raw string with invalid JSON
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toEqual(422);
     // We expect the message to contain "near:" and "Please check for syntax errors"
     expect(res.body.details[0].message).toContain('near:');
     expect(res.body.details[0].message).toContain('Please check for syntax errors');
@@ -70,7 +70,7 @@ describe('POST /validate', () => {
       .post('/validate')
       .set('Content-Type', 'application/json')
       .send('{"name": "Jay", "isActive": FALSE, "role": "admin"}'); 
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toEqual(422);
     expect(res.body.error).toEqual('Invalid JSON');
     expect(res.body.details[0].message).toContain('near:');
     // The snippet should contain part of the invalid text, cleaned up
